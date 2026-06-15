@@ -1,0 +1,114 @@
+{
+  "name": "python-ai-assistant",
+  "displayName": "Python AI Assistant",
+  "description": "AI pair programmer for Python developers — explain, fix, refactor and scan code with Groq AI",
+  "version": "0.0.1",
+  "publisher": "javeria163",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Machine Learning",
+    "Programming Languages",
+    "Linters"
+  ],
+  "keywords": [
+    "python",
+    "ai",
+    "assistant",
+    "groq",
+    "code review",
+    "security"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Python AI Assistant",
+      "properties": {
+        "pythonAI.groqApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your Groq API key from console.groq.com"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "python-ai-assistant.explain",
+        "title": "🔍 AI: Explain Code",
+        "category": "Python AI"
+      },
+      {
+        "command": "python-ai-assistant.fix",
+        "title": "✅ AI: Fix & Refactor Code",
+        "category": "Python AI"
+      },
+      {
+        "command": "python-ai-assistant.security",
+        "title": "🛡️ AI: Security Scan",
+        "category": "Python AI"
+      },
+      {
+        "command": "python-ai-assistant.docstring",
+        "title": "📝 AI: Generate Docstring",
+        "category": "Python AI"
+      },
+      {
+        "command": "python-ai-assistant.chat",
+        "title": "💬 AI: Chat Assistant",
+        "category": "Python AI"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "python-ai-assistant.explain",
+          "when": "editorHasSelection",
+          "group": "pythonAI@1"
+        },
+        {
+          "command": "python-ai-assistant.fix",
+          "when": "editorHasSelection",
+          "group": "pythonAI@2"
+        },
+        {
+          "command": "python-ai-assistant.security",
+          "group": "pythonAI@3"
+        },
+        {
+          "command": "python-ai-assistant.docstring",
+          "when": "editorHasSelection",
+          "group": "pythonAI@4"
+        },
+        {
+          "command": "python-ai-assistant.chat",
+          "group": "pythonAI@5"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  },
+  "dependencies": {
+    "axios": "^1.18.0"
+  }
+}
