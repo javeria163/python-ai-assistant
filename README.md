@@ -95,8 +95,9 @@ python-ai-assistant/
 ├── tsconfig.json           # TypeScript compiler config
 ├── .gitignore              # Keeps node_modules & out off GitHub
 └── README.md               # Project documentation
----
+```
 
+---
 
 ## 👩‍💻 Author
 
